@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'my-app',
@@ -16,7 +17,7 @@ export class AppComponent {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private api: ApiService) {
     this.form = this.fb.group({
       zip: ['', [Validators.required]],
     });
