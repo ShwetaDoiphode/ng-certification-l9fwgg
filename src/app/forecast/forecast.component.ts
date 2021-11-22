@@ -11,6 +11,7 @@ import { ForecastService } from '../services/forecast.service';
 export class ForecastComponent implements OnInit {
   @Input() zipcode: any;
   ZipCode: any;
+  forecast: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -28,8 +29,9 @@ export class ForecastComponent implements OnInit {
   }
 
   getForecat(zipcode) {
-    this.apiforecast
-      .getFiveDaysForecast(zipcode)
-      .subscribe((data) => console.log(data));
+    this.apiforecast.getFiveDaysForecast(zipcode).subscribe((data) => {
+      this.forecast = data;
+      console.log(data);
+    });
   }
 }
