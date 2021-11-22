@@ -17,6 +17,7 @@ export class AppComponent {
 
   form: FormGroup;
   zipData: any = [];
+  isSubmited: boolean = false;
 
   constructor(private fb: FormBuilder, private api: ApiService) {
     this.form = this.fb.group({
@@ -35,10 +36,18 @@ export class AppComponent {
 
   onSubmit(zipvalues: any) {
     console.log(this.form.value);
+    this.isSubmited = true;
+    if (this.form.invalid) {
+      return;
+    }
     // this.api.getWeather(zipvalues.zip).subscribe((data) => console.log(data));
     this.api.getWeather(zipvalues.zipInput).subscribe((data) => {
       this.zipData = data;
       console.log(data);
     });
+  }
+
+  get zipinputform() {
+    return this.form.controls;
   }
 }

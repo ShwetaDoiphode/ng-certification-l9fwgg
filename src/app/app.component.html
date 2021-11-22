@@ -12,9 +12,17 @@
         id="addLocation"
         (keypress)="onlyNumber($event)"
       />
+      <span *ngIf="zipinputform.zipInput.invalid && isSubmited">
+        Zip Code is Required</span
+      >
 
       <br />
-      <button class="btn btn-primary" type="submit" id="addLocationBtn">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!form.valid"
+        id="addLocationBtn"
+      >
         Add location
       </button>
     </form>

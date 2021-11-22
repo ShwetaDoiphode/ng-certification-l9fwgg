@@ -1,3 +1,11 @@
 p {
   font-family: Lato;
 }
+
+input.ng-touched.ng-dirty {
+  border: 1px solid red;
+}
+
+.c1 {
+  border: 1px solid red;
+}
