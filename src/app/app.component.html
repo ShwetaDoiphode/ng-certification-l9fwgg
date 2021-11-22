@@ -1,10 +1,10 @@
 <h4>Template for main page:</h4>
 <div class="container-fluid">
   <div class="well">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
       <h2>Enter a zipcode:</h2>
       <input
-        formControlName="zip"
+        formControlName="zipInput"
         class="form-control"
         placeholder="Zipcode"
         type="text"

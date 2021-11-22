@@ -19,7 +19,7 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder, private api: ApiService) {
     this.form = this.fb.group({
-      zip: ['', [Validators.required]],
+      zipInput: ['', [Validators.required]],
     });
   }
 
@@ -34,5 +34,6 @@ export class AppComponent {
 
   onSubmit() {
     console.log(this.form.value);
+    this.
   }
 }
