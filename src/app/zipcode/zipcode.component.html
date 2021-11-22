@@ -36,11 +36,8 @@
         <p>Current Temp:- {{ this.zipData?.main?.temp }}</p>
         <p>Maximum Temp :- {{ this.zipData?.main?.temp_max }}</p>
         <p>Minimum Temp :- {{ this.zipData?.main?.temp_min }}</p>
-        <p>
-          <a [routerLink]="['/forecast']"
-            >Show 5-day forecast for Rancho Cordova</a
-          >
-        </p>
+
+        <a routerLink="/forecast">Show 5-day forecast for Rancho Cordova</a>
       </div>
       <div>
         <span class="close">×</span>
