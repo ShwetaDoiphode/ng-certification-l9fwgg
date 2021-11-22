@@ -16,6 +16,10 @@
         Zip Code is Required</span
       >
 
+      <span *ngIf="this.errorflag">
+        {{ this.errorMessage }}
+      </span>
+
       <br />
       <button
         class="btn btn-primary"
@@ -37,7 +41,7 @@
         <p>Maximum Temp :- {{ this.zipData?.main?.temp_max }}</p>
         <p>Minimum Temp :- {{ this.zipData?.main?.temp_min }}</p>
 
-        <a routerLink="/forecast">Show 5-day forecast for Rancho Cordova</a>
+        <a routerLink="/forecast" >Show 5-day forecast for Rancho Cordova</a>
       </div>
       <div>
         <span class="close">×</span>
@@ -101,4 +105,3 @@
     &lt; Back to main page
   </button>
 </div>
-<router-outlet></router-outlet>

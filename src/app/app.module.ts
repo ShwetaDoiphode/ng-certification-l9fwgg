@@ -16,7 +16,7 @@ const routes: Routes = [
     component: ZipcodeComponent,
   },
   {
-    path: 'forecast',
+    path: '/forecast',
     component: ForecastFiveComponent,
   },
 ];

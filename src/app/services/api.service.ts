@@ -17,10 +17,10 @@ export class ApiService {
   getWeather(zip: any): Observable<any> {
     return this.http.get(this.baseWeatherURL + zip + this.urlSuffix).pipe(
       catchError((err) => {
-        if (err.status === 404) {
-          console.log(`Zipcode ${zip} not found`);
-          return EMPTY;
-        }
+        //if (err.status === 404) {
+        //console.log(`Zipcode ${zip} not found`);
+        return err;
+        //}
       })
     );
   }
