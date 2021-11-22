@@ -7,7 +7,7 @@ import { HelloComponent } from './hello.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { ForecastFiveComponent } from './forecast-five/forecast-five.component';
+import { ForecastComponent } from './forecast/forecast.component';
 import { ZipcodeComponent } from './zipcode/zipcode.component';
 
 const routes: Routes = [
@@ -15,10 +15,8 @@ const routes: Routes = [
     path: '',
     component: ZipcodeComponent,
   },
-  {
-    path: '/forecast',
-    component: ForecastFiveComponent,
-  },
+  { path: 'zipcode', component: ZipcodeComponent },
+  { path: 'forecast/:zipcode', component: ForecastComponent },
 ];
 
 @NgModule({
@@ -32,7 +30,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HelloComponent,
-    ForecastFiveComponent,
+    ForecastComponent,
     ZipcodeComponent,
   ],
   bootstrap: [AppComponent],

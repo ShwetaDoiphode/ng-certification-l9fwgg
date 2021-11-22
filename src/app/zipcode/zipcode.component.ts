@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-zipcode',
@@ -13,8 +14,13 @@ export class ZipcodeComponent implements OnInit {
   isSubmited: boolean = false;
   errorMessage = '';
   errorflag = false;
+  ZipCode = '';
 
-  constructor(private fb: FormBuilder, private api: ApiService) {
+  constructor(
+    private fb: FormBuilder,
+    private route: Router,
+    private api: ApiService
+  ) {
     this.form = this.fb.group({
       zipInput: ['', [Validators.required]],
     });
@@ -53,6 +59,14 @@ export class ZipcodeComponent implements OnInit {
 
   get zipinputform() {
     return this.form.controls;
+  }
+
+  goToForeCast() {
+    console.log(this.form.value.zipInput);
+
+    this.ZipCode = this.form.value.zipInput;
+    //console.log(value);
+    this.route.navigate(['/forecast/', this.form.value.zipInput]);
   }
 
   ngOnInit() {}
