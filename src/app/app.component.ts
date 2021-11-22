@@ -16,7 +16,7 @@ export class AppComponent {
   name = 'Angular';
 
   form: FormGroup;
-  public weatherData: any;
+  zipData: any = [];
 
   constructor(private fb: FormBuilder, private api: ApiService) {
     this.form = this.fb.group({
@@ -33,11 +33,11 @@ export class AppComponent {
     return true;
   }
 
-  onSubmit(zipvalues) {
+  onSubmit(zipvalues: any) {
     console.log(this.form.value);
     // this.api.getWeather(zipvalues.zip).subscribe((data) => console.log(data));
     this.api.getWeather(zipvalues.zipInput).subscribe((data) => {
-      this.weatherData = data;
+      this.zipData = data;
       console.log(data);
     });
   }

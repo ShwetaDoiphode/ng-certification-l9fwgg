@@ -24,8 +24,4 @@ export class ApiService {
       })
     );
   }
-
-  getzipweather(zip: any): Observable<any> {
-    return this.http.get(this.baseWeatherURL + zip + this.urlSuffix);
-  }
 }
