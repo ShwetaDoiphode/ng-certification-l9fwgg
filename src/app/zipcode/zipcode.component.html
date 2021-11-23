@@ -42,11 +42,11 @@
         <p>Minimum Temp :- {{ this.zipData?.main?.temp_min }}</p>
 
         <span (click)="goToForeCast()"
-          >Show 5-day forecast for Rancho Cordova</span
+          >Show 5-day forecast for {{ zipData.name }}</span
         >
       </div>
       <div>
-        <span class="close">×</span>
+        <span class="close" (click)="dataNotDisplay()">×</span>
         <img src="https://www.angulartraining.com/images/weather/sun.png" />
       </div>
     </div>

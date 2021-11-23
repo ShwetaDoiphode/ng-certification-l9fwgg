@@ -58,6 +58,10 @@ export class ZipcodeComponent implements OnInit {
     );
   }
 
+  dataNotDisplay() {
+    console.log('hiii');
+  }
+
   get zipinputform() {
     return this.form.controls;
   }
