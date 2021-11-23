@@ -32,6 +32,8 @@ export class ForecastComponent implements OnInit {
     this.apiforecast.getFiveDaysForecast(zipcode).subscribe((data) => {
       this.forecast = data;
       console.log(data);
+
+      
     });
   }
 }
