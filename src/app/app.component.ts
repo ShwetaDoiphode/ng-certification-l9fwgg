@@ -1,11 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'my-app',
@@ -14,6 +7,4 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent {
   name = 'Angular';
-
- 
 }
