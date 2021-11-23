@@ -1,12 +1,13 @@
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">5-day forecast for Rancho Cordova</h3>
+      <h3 class="panel-title">5-day forecast for {{ forecast.name }}</h3>
     </div>
     <ul class="list-group" *ngFor="let dataforecast of forecast">
       <li class="list-group-item">
-        {{ dataforecast.dt_txt | date: 'EEE, MMM dd' }},
-        <span> Low : {{ dataforecast.main.temp_min }}</span
+        {{ dataforecast.dt_txt | date: 'EEE' }} -
+        <span> {{ dataforecast.weather[0].main }}</span
+        >, <span> Low : {{ dataforecast.main.temp_min }}</span
         >,
         <span> High : {{ dataforecast.main.temp_max }}</span>
 
