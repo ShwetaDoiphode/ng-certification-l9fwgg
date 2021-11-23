@@ -49,7 +49,7 @@ export class ZipcodeComponent implements OnInit {
       (data) => {
         this.zipData = data;
         this.errorflag = false;
-        console.log(this.zipData);
+        // console.log(this.zipData);
       },
       (error) => {
         //Error callback
@@ -77,7 +77,7 @@ export class ZipcodeComponent implements OnInit {
   }
 
   addData() {
-    // this.addedData = [];
+    this.addedData = [];
     const dataArry = this.addedData.push(this.zipData);
     console.log('DataAdded in arrya', this.addedData);
   }
