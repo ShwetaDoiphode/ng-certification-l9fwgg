@@ -59,7 +59,8 @@ export class ZipcodeComponent implements OnInit {
   }
 
   dataNotDisplay() {
-    console.log('hiii');
+    //console.log('hiii');
+    this.zipData = false;
   }
 
   get zipinputform() {
