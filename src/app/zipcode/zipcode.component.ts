@@ -44,6 +44,7 @@ export class ZipcodeComponent implements OnInit {
       console.log(this.form.value);
       return;
     }
+
     // this.api.getWeather(zipvalues.zip).subscribe((data) => console.log(data));
     this.api.getWeather(zipvalues.zipInput).subscribe(
       (data) => {
