@@ -48,6 +48,7 @@ export class ZipcodeComponent implements OnInit {
       (data) => {
         this.zipData = data;
         this.errorflag = false;
+        console.log(this.zipData);
       },
       (error) => {
         //Error callback
