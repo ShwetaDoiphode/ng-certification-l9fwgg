@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { pluck } from 'rxjs/operators';
 import { ForecastService } from '../services/forecast.service';
 
 @Component({
@@ -29,11 +30,20 @@ export class ForecastComponent implements OnInit {
   }
 
   getForecat(zipcode) {
-    this.apiforecast.getFiveDaysForecast(zipcode).subscribe((data) => {
-      this.forecast = data;
-      console.log(data);
+    this.apiforecast
+      .getFiveDaysForecast(zipcode)
+      .pipe(pluck('list'))
+      .subscribe((data) => {
+        // this.forecast = data;
+        // console.log(data);
+        this.furturforcast(data);
+      });
+  }
 
-      
-    });
+  furturforcast(data: any) {
+    for (let i = 0; i < data.length; i = i + 8) {
+      this.forecast.push(data[i]);
+    }
+    console.log(this.forecast);
   }
 }
