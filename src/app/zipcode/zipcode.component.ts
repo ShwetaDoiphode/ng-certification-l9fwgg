@@ -15,7 +15,7 @@ export class ZipcodeComponent implements OnInit {
   errorMessage = '';
   errorflag = false;
   ZipCode = '';
-  resultZip: any = [];
+  addedData: any[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -76,6 +76,12 @@ export class ZipcodeComponent implements OnInit {
     this.ZipCode = this.form.value.zipInput;
     //console.log(value);
     this.route.navigate(['/forecast/', this.form.value.zipInput]);
+  }
+
+  addData() {
+    //this.addedData = [];
+    const dataArry = this.addedData.push(this.zipData);
+    console.log('DataAdded in arrya', this.addedData);
   }
 
   ngOnInit() {}
