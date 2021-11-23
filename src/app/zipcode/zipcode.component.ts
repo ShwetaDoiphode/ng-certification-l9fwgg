@@ -51,7 +51,6 @@ export class ZipcodeComponent implements OnInit {
         this.zipData = data;
         this.errorflag = false;
 
-        //this.resultZip = this.resultZip.append(this.zipData);
         console.log(this.zipData);
       },
       (error) => {
