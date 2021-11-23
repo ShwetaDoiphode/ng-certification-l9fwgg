@@ -5,7 +5,7 @@
     </div>
     <ul class="list-group" *ngFor="let dataforecast of forecast">
       <li class="list-group-item">
-        {{ dataforecast.dt_txt }}
+        {{ dataforecast.dt_txt | date: 'EEE, MMM dd' }}
         <img
           class="icon"
           src="https://www.angulartraining.com/images/weather/rain.png"
