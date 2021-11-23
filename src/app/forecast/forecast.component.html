@@ -3,46 +3,12 @@
     <div class="panel-heading">
       <h3 class="panel-title">5-day forecast for Rancho Cordova</h3>
     </div>
-    <ul class="list-group">
-      <!---->
+    <ul class="list-group" *ngFor="let dataforecast of forecast">
       <li class="list-group-item">
-        Monday, Mar 23: Rain - Min: 45 - Max: 59
-
+        {{ dataforecast.dt_txt }}
         <img
           class="icon"
           src="https://www.angulartraining.com/images/weather/rain.png"
-        />
-      </li>
-      <li class="list-group-item">
-        Tuesday, Mar 24: Rain - Min: 39 - Max: 52
-
-        <img
-          class="icon"
-          src="https://www.angulartraining.com/images/weather/sun.png"
-        />
-      </li>
-      <li class="list-group-item">
-        Wednesday, Mar 25: Rain - Min: 36 - Max: 54
-
-        <img
-          class="icon"
-          src="https://www.angulartraining.com/images/weather/rain.png"
-        />
-      </li>
-      <li class="list-group-item">
-        Thursday, Mar 26: Clear - Min: 37 - Max: 56
-
-        <img
-          class="icon"
-          src="https://www.angulartraining.com/images/weather/clouds.png"
-        />
-      </li>
-      <li class="list-group-item">
-        Friday, Mar 27: Clear - Min: 40 - Max: 57
-
-        <img
-          class="icon"
-          src="https://www.angulartraining.com/images/weather/snow.png"
         />
       </li>
     </ul>
