@@ -9,22 +9,9 @@ import { CurrentWeather } from '../model/current-weather';
   providedIn: 'root',
 })
 export class ApiService {
-  // private baseWeatherURL =
-  //   'https://api.openweathermap.org/data/2.5/weather?zip=';
-  // private urlSuffix = '&units=metric&APPID=abe1eb51289c21c167c66ce790c2fac3';
-  // constructor(private http: HttpClient) {}
-  // getWeather(zip: any): Observable<any> {
-  //   return this.http.get(this.baseWeatherURL + zip + this.urlSuffix).pipe(
-  //     catchError((err) => {
-  //       return err;
-  //     })
-  //   );
-  // }
-
   apiKey: string = '5a4b2d457ecbef9eb2a71e480b947604';
   currentWeatherUrl: string =
     'https://api.openweathermap.org/data/2.5/weather?zip=';
-  forecastUrl: string = 'https://api.openweathermap.org/data/2.5/forecast?zip=';
 
   locationData: CurrentWeather[] = [];
   zipCodeArray: any[] = [];
@@ -43,12 +30,6 @@ export class ApiService {
           '&units=metric'
       )
       .pipe(catchError(this.handleError));
-  }
-
-  getForecastData(zipCode: string) {
-    return this.http.get(
-      this.forecastUrl + zipCode + '&appid=' + this.apiKey + '&units=metric'
-    );
   }
 
   handleError(error) {

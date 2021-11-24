@@ -21,4 +21,20 @@ export class ForecastService {
       })
     );
   }
+
+  getImage(description: string): string {
+    if (description.includes('clear sky')) {
+      return 'https://angulartraining.com/images/weather/sun.png';
+    } else if (description.includes('rain')) {
+      return 'https://angulartraining.com/images/weather/rain.png';
+    } else if (description.includes('clouds')) {
+      return 'https://angulartraining.com/images/weather/clouds.png';
+    } else if (description.includes('snow')) {
+      return 'https://angulartraining.com/images/weather/snow.png';
+    } else if (description.includes('mist')) {
+      return 'https://angulartraining.com/images/weather/clouds.png';
+    } else if (description.includes('drizzle')) {
+      return 'https://angulartraining.com/images/weather/rain.png';
+    }
+  }
 }

@@ -17,10 +17,7 @@ export class ForecastComponent implements OnInit {
   ZipCode: any;
   forecast: any = [];
   item: any = {};
-  zipCode: string;
-  cityName: string;
-  forecastObject: any = {};
-  forecastArray: any[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private apiforecast: ForecastService
@@ -31,34 +28,16 @@ export class ForecastComponent implements OnInit {
     const zipCodeFromRoute = Number(routeParams.get('zipcode'));
     console.log('Zip Code passed', zipCodeFromRoute);
     this.ZipCode = zipCodeFromRoute;
-    //this.getForecat(this.ZipCode);
+    this.getForecat(this.ZipCode);
   }
-  // getForecat(zipcode) {
-  //   this.apiforecast
-  //     .getFiveDaysForecast(zipcode)
-  //     .pipe(pluck('list'))
-  //     .subscribe((data) => {
-  //       this.furturforcast(data);
-  //     });
-  // }
 
-  forecastData() {
-    this.forecast.splice(0, this.forecast.length);
-    this.apiforecast.getFiveDaysForecast(this.zipcode).subscribe((data) => {
-      this.item = data;
-      this.cityName = this.item.city.name;
-
-      for (let i = 0; i < this.item.list.length; i += 8) {
-        this.forecastObject = new Forecast(
-          this.item.list[i].dt_txt,
-          this.item.list[i].main.temp_max,
-          this.item.list[i].main.temp_min,
-          this.item.list[i].weather[0].description
-        );
-
-        this.forecastArray.push(this.forecastObject);
-      }
-    });
+  getForecat(zipcode) {
+    this.apiforecast
+      .getFiveDaysForecast(zipcode)
+      .pipe(pluck('list'))
+      .subscribe((data) => {
+        this.furturforcast(data);
+      });
   }
 
   furturforcast(data: any) {
@@ -67,44 +46,7 @@ export class ForecastComponent implements OnInit {
     }
     console.log(this.forecast);
   }
-  //pratiksha
-  // @Input()
-  // locationData: CurrentWeather[] = [];
-  // doNotShow: boolean = false;
-  // zipCode: string;
-  // cityName: string;
-  // forecastArray: any[] = [];
-  // item: any = {};
-  // forecastObject: any = {};
-  // constructor(
-  //   private route: ActivatedRoute,
-  //   private weatherService: ApiService,
-  //   private router: Router
-  // ) {}
-  // ngOnInit(): void {
-  //   this.zipCode = this.route.snapshot.paramMap.get('zipCode')!;
-  //   this.forecastData();
-  // }
-  // forecastData() {
-  //   this.forecastArray.splice(0, this.forecastArray.length);
-  //   this.weatherService.getForecastData(this.zipCode).subscribe((data) => {
-  //     this.item = data;
-  //     this.cityName = this.item.city.name;
-  //     for (let i = 0; i < this.item.list.length; i += 8) {
-  //       this.forecastObject = new Forecast(
-  //         this.item.list[i].dt_txt,
-  //         this.item.list[i].main.temp_max,
-  //         this.item.list[i].main.temp_min,
-  //         this.item.list[i].weather[0].description
-  //       );
-  //       this.forecastArray.push(this.forecastObject);
-  //     }
-  //   });
-  // }
-  // displayImage(description: string): string {
-  //   return this.weatherService.getImage(description);
-  // }
-  // goToHome() {
-  //   this.router.navigate(['']);
-  // }
+  displayImage(description: string): string {
+    return this.apiforecast.getImage(description);
+  }
 }
