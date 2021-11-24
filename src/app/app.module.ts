@@ -11,17 +11,7 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { ZipcodeComponent } from './zipcode/zipcode.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherListcomponentComponent } from './weather-listcomponent/weather-listcomponent.component';
-
-const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
-
-  { path: 'forecast/:zipcode', component: ForecastComponent },
-  {
-    path: '',
-    component: ZipcodeComponent,
-    children: [{ path: '', component: WeatherListcomponentComponent }],
-  },
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
@@ -29,7 +19,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
