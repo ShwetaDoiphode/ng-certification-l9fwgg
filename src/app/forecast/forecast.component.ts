@@ -15,14 +15,6 @@ export class ForecastComponent implements OnInit {
   @Input() zipcode: any;
   ZipCode: any;
   forecast: any = [];
-  @Input()
-  locationData: CurrentWeather[] = [];
-
-  zipCode: string;
-  cityName: string;
-  forecastArray: any[] = [];
-  item: any = {};
-  forecastObject: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -34,39 +26,26 @@ export class ForecastComponent implements OnInit {
     const zipCodeFromRoute = Number(routeParams.get('zipcode'));
     console.log('Zip Code passed', zipCodeFromRoute);
     this.ZipCode = zipCodeFromRoute;
-    //this.getForecat(this.ZipCode);
+    this.getForecat(this.ZipCode);
   }
 
-  // getForecat(zipcode) {
-  //   this.apiforecast
-  //     .getFiveDaysForecast(zipcode)
-  //     .pipe(pluck('list'))
-  //     .subscribe((data) => {
-  //       this.furturforcast(data);
-  //     });
-  // }
-
-  // furturforcast(data: any) {
-  //   for (let i = 0; i < data.length; i = i + 8) {
-  //     this.forecast.push(data[i]);
-  //   }
-  //   console.log(this.forecast);
-  // }
-  // displayImage(description: string): string {
-  //   return this.apiforecast.getImage(description);
-  // }
-
-  forecastData() {
-    this.forecastArray.splice(0, this.forecastArray.length);
+  getForecat(zipcode) {
     this.apiforecast
-      .getFiveDaysForecast(this.zipcode)
+      .getFiveDaysForecast(zipcode)
       .pipe(pluck('list'))
       .subscribe((data) => {
-       
+        this.furturforcast(data);
       });
   }
 
-  furturforcast(data:any){
-    
+  furturforcast(data: any) {
+    for (let i = 0; i < data.length; i = i + 8) {
+      this.forecast.push(data[i]);
+    }
+    console.log(this.forecast);
+  }
+
+  displayImage(description: string): string {
+    return this.apiforecast.getImage(description);
   }
 }
