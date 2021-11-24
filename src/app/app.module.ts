@@ -23,14 +23,7 @@ const routes: Routes = [
   ///
   { path: '', redirectTo: '/', pathMatch: 'full' },
 
-  // {
-  //   path: 'forecast',
-  //   loadChildren: () =>
-  //     import('./forecast/forecast.module').then((m) => m.ForecastModule),
-  // },
-
-  { path: ':zipCode', component: ForecastComponent },
-
+  { path: 'forecast/:zipcode', component: ForecastComponent },
   {
     path: '',
     component: ZipcodeComponent,
