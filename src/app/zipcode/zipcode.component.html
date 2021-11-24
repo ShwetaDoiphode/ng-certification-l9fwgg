@@ -1,4 +1,4 @@
-<h4>Template for main page:</h4>
+<!-- <h4>Template for main page:</h4>
 <div class="container-fluid">
   <div class="well">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
@@ -34,10 +34,10 @@
   <div>
     <div class="well flex">
       <div>
-        <!-- <button (click)="addData()">Add</button> -->
+       
 
         <h3>City Name :- {{ zipData.name }}</h3>
-        <!-- <h4>Current conditions: {{ this.zipData.weather[0].main }}</h4> -->
+       
         <h4>Temperatures today:</h4>
         <p>Current Temp:- {{ this.zipData?.main?.temp }}</p>
         <p>Maximum Temp :- {{ this.zipData?.main?.temp_max }}</p>
@@ -49,10 +49,60 @@
       </div>
       <div>
         <span class="close" (click)="dataNotDisplay()">×</span>
-        <!-- <img src="assets/img/{{this.zipData.icon}}.png" alt="" /> -->
+      
         <img src="https://www.angulartraining.com/images/weather/sun.png" />
       </div>
     </div>
   </div>
 </div>
-<hr />
+<hr /> -->
+
+<app-header *ngIf="!doNotShow"></app-header>
+
+<div class="container">
+  <div style="text-align: center;">
+    <div class="alert-danger"></div>
+    <h2>Enter a ZipCode:</h2>
+    <form
+      #weatherForm="ngForm"
+      *ngIf="!submitted"
+      (ngSubmit)="onSubmit(weatherForm)"
+    >
+      <div class="form-group">
+        <input
+          type="tel"
+          pattern="^\d{5}$"
+          required
+          #zip="ngModel"
+          placeholder="zipcode"
+          name="zip"
+          id="addLocation"
+          class="form-cotrol"
+          [(ngModel)]="formObject.zip"
+        />
+        <br />
+        <div
+          class="alert alert-danger"
+          *ngIf="zip.errors && (zip.valid || zip.untouched)"
+        >
+          <!--zip.touched && zip.invalid -->
+          <div *ngIf="zip.errors.required">Zipcode is required</div>
+          <div *ngIf="zip.errors.pattern">Zipcode must be of 5 digits.</div>
+        </div>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        id="addLocationBtn"
+        [disabled]="weatherForm.form.invalid"
+      >
+        Add Location
+      </button>
+    </form>
+  </div>
+</div>
+
+<app-weather-listcomponent
+  [zipCodeArray]="zipCodeArray"
+  [locationData]="currentWeather"
+></app-weather-listcomponent>

@@ -9,14 +9,33 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ForecastComponent } from './forecast/forecast.component';
 import { ZipcodeComponent } from './zipcode/zipcode.component';
+import { HeaderComponent } from './header/header.component';
+import { WeatherListcomponentComponent } from './weather-listcomponent/weather-listcomponent.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: ZipcodeComponent,
+  // },
+  // { path: 'zipcode', component: ZipcodeComponent },
+  // { path: 'forecast/:zipcode', component: ForecastComponent },
+
+  ///
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+
+  // {
+  //   path: 'forecast',
+  //   loadChildren: () =>
+  //     import('./forecast/forecast.module').then((m) => m.ForecastModule),
+  // },
+
+  { path: ':zipCode', component: ForecastComponent },
+
   {
     path: '',
     component: ZipcodeComponent,
+    children: [{ path: '', component: WeatherListcomponentComponent }],
   },
-  { path: 'zipcode', component: ZipcodeComponent },
-  { path: 'forecast/:zipcode', component: ForecastComponent },
 ];
 
 @NgModule({
@@ -32,6 +51,8 @@ const routes: Routes = [
     HelloComponent,
     ForecastComponent,
     ZipcodeComponent,
+    HeaderComponent,
+    WeatherListcomponentComponent,
   ],
   bootstrap: [AppComponent],
   providers: [ApiService],

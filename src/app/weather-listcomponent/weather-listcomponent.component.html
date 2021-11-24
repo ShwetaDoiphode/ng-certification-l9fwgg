@@ -1,0 +1,33 @@
+<div class="container">
+  <ng-container
+    class="well flex"
+    *ngFor="let item of locationData; let id = index"
+  >
+    <div class="well flex">
+      <div>
+        <h3>{{ item.city }} ({{ zipCodeArray[id] }})</h3>
+        <h4>
+          Current Condition: <b>{{ item.description }}</b>
+        </h4>
+        <h4>Temprature Today:</h4>
+        <p>
+          Current: <b>{{ item.currentTemperature }} &#8451;</b><br />
+          Max: <b>{{ item.maxTemperature }} &#8451;</b><br />
+          Min: <b>{{ item.minTemperature }} &#8451;</b><br />
+        </p>
+
+        <p>
+          <a (click)="onSelect(zipCodeArray[id])">
+            Show 5-day forecast for {{ item.city }}
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <span class="close" (click)="onDelete(item, zipCodeArray[id])">×</span>
+
+        <img [src]="displayImage(item.description)" />
+      </div>
+    </div>
+  </ng-container>
+</div>
