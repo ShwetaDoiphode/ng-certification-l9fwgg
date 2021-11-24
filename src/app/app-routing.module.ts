@@ -7,7 +7,7 @@ import { ZipcodeComponent } from './zipcode/zipcode.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
 
-  { path: 'forecast/:zipcode', component: ForecastComponent },
+  { path: 'forecast/:zipCode', component: ForecastComponent },
   {
     path: '',
     component: ZipcodeComponent,

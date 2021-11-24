@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">5 day Forecast :</h3>
@@ -24,4 +24,28 @@
       Back to main page
     </button></a
   >
+</div> -->
+
+<div class="header" *ngIf="!doNotShow">Weather Application</div>
+<br>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-tittle">5-day forecast for {{cityName}}</h3>
+        </div>
+
+        <div *ngFor="let forecast of forecastArray">
+            <ul class="group">
+                <li class="list-group-item">
+                    {{forecast.day |date:'EEEE, MMMM d'}} <br>
+                    Condition: <b>{{forecast.description}}</b>
+                    Min: <b>{{forecast.minTemperature}} &#8451;</b>
+                    Max: <b>{{forecast.maxTemperature}} &#8451;</b>
+                    <img class="icon" [src]="displayImage(forecast.description)" >
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button (click)="goToHome()" class="btn btn-success" tabindex="0"
+    id="mainPageBtn" >&lt;Back to main page</button>
 </div>
