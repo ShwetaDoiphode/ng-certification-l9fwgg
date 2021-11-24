@@ -5,13 +5,11 @@
     </div>
     <ul class="list-group" *ngFor="let dataforecast of forecast">
       <li class="list-group-item">
-
         {{ dataforecast.dt_txt | date: 'EEE' }} -
         <span> {{ dataforecast.weather[0].main }}</span
-        >, <span> Low : {{ dataforecast.main.temp_min }}</span
-        >,
-        <span>{{ dataforecast.weather[0].description }}</span>
-        <span> High : {{ dataforecast.main.temp_max }}</span>
+        >, <span> Low : {{ dataforecast.main.temp_min }} &#8451;</span>,
+        <span>{{ dataforecast.weather[0].description }} &#8451;</span>
+        <span> High : {{ dataforecast.main.temp_max }} &#8451;</span>
 
         <img
           class="icon"
