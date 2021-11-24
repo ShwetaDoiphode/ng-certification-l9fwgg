@@ -143,4 +143,13 @@ export class ZipcodeComponent implements OnInit {
     }
     weatherForm.resetForm();
   }
+
+  onlyNumber(event): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      console.log('charcode not allow' + charCode);
+      return false;
+    }
+    return true;
+  }
 }

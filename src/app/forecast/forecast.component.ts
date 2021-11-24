@@ -16,7 +16,6 @@ export class ForecastComponent implements OnInit {
   @Input() zipcode: any;
   ZipCode: any;
   forecast: any = [];
-  item: any = {};
 
   constructor(
     private route: ActivatedRoute,

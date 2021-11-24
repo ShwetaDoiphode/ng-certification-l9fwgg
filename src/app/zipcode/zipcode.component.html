@@ -81,6 +81,7 @@
           class="form-cotrol"
           [(ngModel)]="formObject.zip"
           maxlength="5"
+          (keypress)="onlyNumber($event)"
         />
         <br />
         <div
