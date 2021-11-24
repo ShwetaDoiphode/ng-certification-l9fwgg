@@ -59,8 +59,8 @@
 
 <app-header *ngIf="!doNotShow"></app-header>
 
-<div class="container">
-  <div style="text-align: center;">
+<div class="container-fluid">
+  <div class="well">
     <div class="alert-danger"></div>
     <h2>Enter a ZipCode:</h2>
     <form
@@ -71,6 +71,7 @@
       <div class="form-group">
         <input
           type="tel"
+          class="form-control"
           pattern="^\d{5}$"
           required
           #zip="ngModel"
@@ -79,10 +80,11 @@
           id="addLocation"
           class="form-cotrol"
           [(ngModel)]="formObject.zip"
+          maxlength="5"
         />
         <br />
         <div
-          class="alert alert-danger"
+          class="alert alert-danger mt-4"
           *ngIf="zip.errors && (zip.valid || zip.untouched)"
         >
           <!--zip.touched && zip.invalid -->
