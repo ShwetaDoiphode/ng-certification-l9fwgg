@@ -10,17 +10,14 @@ import { catchError } from 'rxjs/operators';
 export class ForecastService {
   private baseWeatherURL =
     'https://api.openweathermap.org/data/2.5/forecast?zip=';
-  private urlSuffix = '&units=metric&APPID=abe1eb51289c21c167c66ce790c2fac3';
+  private urlSuffix = '&units=metric&APPID=5a4b2d457ecbef9eb2a71e480b947604';
 
   constructor(private http: HttpClient) {}
 
   getFiveDaysForecast(zip: any): Observable<any> {
     return this.http.get(this.baseWeatherURL + zip + this.urlSuffix).pipe(
       catchError((err) => {
-        //if (err.status === 404) {
-        //console.log(`Zipcode ${zip} not found`);
         return err;
-        //}
       })
     );
   }

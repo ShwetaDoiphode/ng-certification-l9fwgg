@@ -21,7 +21,7 @@ export class ApiService {
   //   );
   // }
 
-  apiKey: string = '93ed308c535e4ce6e7548d7092d042f2';
+  apiKey: string = '5a4b2d457ecbef9eb2a71e480b947604';
   currentWeatherUrl: string =
     'https://api.openweathermap.org/data/2.5/weather?zip=';
   forecastUrl: string = 'https://api.openweathermap.org/data/2.5/forecast?zip=';
