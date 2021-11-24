@@ -58,21 +58,15 @@ export class ForecastComponent implements OnInit {
 
   forecastData() {
     this.forecastArray.splice(0, this.forecastArray.length);
-    this.apiforecast.getFiveDaysForecast(this.zipCode).subscribe((data) => {
-      this.item = data;
-      this.cityName = this.item.city.name;
+    this.apiforecast
+      .getFiveDaysForecast(this.zipcode)
+      .pipe(pluck('list'))
+      .subscribe((data) => {
+       
+      });
+  }
 
-      for (let i = 0; i < this.item.list.length; i += 8) {
-        this.forecastObject = new Forecast(
-          this.item.list[i].dt_txt,
-          this.item.list[i].main.temp_max,
-          this.item.list[i].main.temp_min,
-          this.item.list[i].weather[0].description
-        );
-
-        this.forecastArray.push(this.forecastObject);
-      }
-      console.log(this.forecastObject);
-    });
+  furturforcast(data:any){
+    
   }
 }
