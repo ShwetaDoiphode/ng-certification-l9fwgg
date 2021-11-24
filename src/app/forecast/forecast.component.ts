@@ -45,7 +45,5 @@ export class ForecastComponent implements OnInit {
     console.log(this.forecast);
   }
 
-  displayImage(description: string): string {
-    return this.apiforecast.getImage(description);
-  }
+  
 }
