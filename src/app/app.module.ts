@@ -13,14 +13,6 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherListcomponentComponent } from './weather-listcomponent/weather-listcomponent.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: ZipcodeComponent,
-  // },
-  // { path: 'zipcode', component: ZipcodeComponent },
-  // { path: 'forecast/:zipcode', component: ForecastComponent },
-
-  ///
   { path: '', redirectTo: '/', pathMatch: 'full' },
 
   { path: 'forecast/:zipcode', component: ForecastComponent },
