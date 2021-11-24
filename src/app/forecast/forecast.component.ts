@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { pluck } from 'rxjs/operators';
 import { CurrentWeather } from '../model/current-weather';
 import { Forecast } from '../model/forecast';
+import { ApiService } from '../services/api.service';
 import { ForecastService } from '../services/forecast.service';
 
 @Component({
@@ -12,8 +13,6 @@ import { ForecastService } from '../services/forecast.service';
   styleUrls: ['./forecast.component.css'],
 })
 export class ForecastComponent implements OnInit {
-  
-
   @Input()
   locationData: CurrentWeather[] = [];
 
@@ -27,6 +26,7 @@ export class ForecastComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private weatherService: ForecastService,
+    private getimg: ApiService,
     private router: Router
   ) {}
 
@@ -55,7 +55,7 @@ export class ForecastComponent implements OnInit {
   }
 
   displayImage(description: string): string {
-    return this.weatherService.getImage(description);
+    return this.getimg.getImage(description);
   }
 
   goToHome() {
