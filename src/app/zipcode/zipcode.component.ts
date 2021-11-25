@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import { CurrentWeather } from '../model/current-weather';
@@ -34,6 +34,7 @@ export class ZipcodeComponent implements OnInit {
 
   onSubmit(weatherForm: NgForm) {
     this.ngOnInit();
+
     this.zipCodeArray = this.oldZipArray;
     if (
       this.weatherService.isExisting(this.formObject.zip, this.zipCodeArray) ===
