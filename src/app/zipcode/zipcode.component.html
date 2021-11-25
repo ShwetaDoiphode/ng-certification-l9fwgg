@@ -20,7 +20,7 @@
           id="addLocation"
           class="form-cotrol"
           [(ngModel)]="formObject.zip"
-          maxlength="5"
+          minlength="5"
           (keypress)="onlyNumber($event)"
         />
         <br />
@@ -30,7 +30,7 @@
         >
           <!--zip.touched && zip.invalid -->
           <div *ngIf="zip.errors.required">Zipcode is required</div>
-          <div *ngIf="zip.errors.pattern">Zipcode must be of 5 digits.</div>
+          <div *ngIf="zip.errors.minlength">Zipcode must be of 5 digits.</div>
         </div>
       </div>
 
